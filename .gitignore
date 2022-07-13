@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+.env
+docker/storage/
+!docker/storage/.gitkeep
+docker/ssl/server.crt
+!docker/ssl/server.crt.example
+docker/ssl/server.key
+!docker/ssl/server.key.example

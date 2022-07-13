@@ -1,0 +1,30 @@
+#
+# Docker based environment.
+#
+---
+
+version: '3.7'
+
+networks:
+  docker-network:
+    name: docker-network
+    driver: bridge
+
+services:
+  statping:
+    container_name: 'statping'
+    hostname: 'statping'
+    image: statping/statping
+    volumes:
+      - ./docker/storage:/app
+      - type: bind
+        source: ./docker/ssl/server.crt
+        target: /app/server.crt
+      - type: bind
+        source: ./docker/ssl/server.key
+        target: /app/server.key
+    ports:
+      - ${HTTP_PORT}:8080
+      - ${HTTPS_PORT}:443
+    networks:
+      - 'docker-network'
