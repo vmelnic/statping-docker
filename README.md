@@ -25,4 +25,4 @@ docker-compose up -d --build
 
 ## Configurations
 
-Exposed ports: 8088
+Exposed ports: 8088, 8089
